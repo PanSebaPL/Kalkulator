@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalkulator.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Label
+                Text=""
+                SemanticProperties.Description="Wynik"
+                FontSize="10"
+                x:Name="OldEquals"
+                HorizontalOptions="End" />
+            <Label
+                Text="0"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Wynik"
+                FontSize="18"
+                x:Name="Equals"
+                HorizontalOptions="End" />
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="0"
+                x:Name="SevenBtn"
+                Text="7"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnSevenClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+                />
+                <Button Grid.Column="1" Grid.Row="0"
+                x:Name="EightBtn"
+                Text="8"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnEightClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button Grid.Column="2" Grid.Row="0"
+                x:Name="NineBtn"
+                Text="9"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnNineClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button Grid.Column="0"  Grid.Row="1" 
+                x:Name="FourBtn"
+                Text="4"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnFourClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button Grid.Column="1" Grid.Row="1" 
+                x:Name="FiveBtn"
+                Text="5"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnFiveClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button Grid.Column="2" Grid.Row="1" 
+                x:Name="SixBtn"
+                Text="6"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnSixClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button Grid.Column="0"  Grid.Row="2" 
+                x:Name="OneBtn"
+                Text="1"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnOneClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button Grid.Column="1"  Grid.Row="2" 
+                x:Name="TwoBtn"
+                Text="2"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnTwoClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button Grid.Column="2" Grid.Row="2" 
+                x:Name="ThreeBtn"
+                Text="3"
+                SemanticProperties.Hint="NumberClick"
+                Clicked="OnThreeClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button Grid.Column="1" Grid.Row="3" 
+                    x:Name="ZeroBtn"
+                    Text="0"
+                    SemanticProperties.Hint="NumberClick"
+                    Clicked="OnZeroClicked"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                />
+            <Button
+                x:Name="PlusBtn" Grid.Column="3" Grid.Row="0" 
+                Text="+"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnPlusClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button
+                x:Name="MinusBtn" Grid.Column="3" Grid.Row="1" 
+                Text="-"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnMinusClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button
+                x:Name="MultiBtn" Grid.Column="3" Grid.Row="2" 
+                Text="*"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnMultiClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button
+                x:Name="DivBtn" Grid.Column="3" Grid.Row="3" 
+                Text="/"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnDivClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+                <Button
+                x:Name="EqualBtn" Grid.Column="3" Grid.Row="4" 
+                Text="="
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnEqualClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button
+                x:Name="DeleteBtn" Grid.Column="1" Grid.Row="4" 
+                Text="CE"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnDeleteClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+
+            <Button
+                x:Name="InvertBtn" Grid.Column="0" Grid.Row="3" 
+                Text="+/-"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnInvertClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            <Button
+                x:Name="DotBtn" Grid.Column="2" Grid.Row="3" 
+                Text=","
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnDotClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
