@@ -224,6 +224,7 @@
         {
             int Invert;
             int.TryParse(Equals.Text, out Invert);
+            if(Invert != 0)
             Equals.Text = (Invert * -1).ToString();
             SemanticScreenReader.Announce(Equals.Text);
         }
