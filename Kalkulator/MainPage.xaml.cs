@@ -149,6 +149,8 @@
         }
         private void OnPlusClicked(object sender, EventArgs e)
         {
+            if (CalcType!=' ')
+                OnEqualClicked(sender,e);
             float.TryParse(Equals.Text,out NumOne);
             OldEquals.Text = NumOne.ToString()+" + ";
             SemanticScreenReader.Announce(OldEquals.Text);
@@ -158,6 +160,8 @@
         }
         private void OnMinusClicked(object sender, EventArgs e)
         {
+            if (CalcType != ' ')
+                OnEqualClicked(sender, e);
             float.TryParse(Equals.Text, out NumOne);
             OldEquals.Text = NumOne.ToString() + " - ";
             SemanticScreenReader.Announce(OldEquals.Text);
@@ -167,6 +171,8 @@
         }
         private void OnMultiClicked(object sender, EventArgs e)
         {
+            if (CalcType != ' ')
+                OnEqualClicked(sender, e);
             float.TryParse(Equals.Text, out NumOne);
             OldEquals.Text = NumOne.ToString() + " * ";
             SemanticScreenReader.Announce(OldEquals.Text);
@@ -176,6 +182,8 @@
         }
         private void OnDivClicked(object sender, EventArgs e)
         {
+            if (CalcType != ' ')
+                OnEqualClicked(sender, e);
             float.TryParse(Equals.Text, out NumOne);
             OldEquals.Text = NumOne.ToString() + " / ";
             SemanticScreenReader.Announce(OldEquals.Text);
@@ -193,6 +201,25 @@
             SemanticScreenReader.Announce(OldEquals.Text);
             SemanticScreenReader.Announce(Equals.Text);
         }
+        private void OnRevertClicked(object sender, EventArgs e)
+        {
+            if (Equals.Text != "0" && Equals.Text.Length>=1)
+            {
+                Equals.Text = Equals.Text.Remove(Equals.Text.Length - 1);
+                SemanticScreenReader.Announce(Equals.Text);
+            }
+            if (Equals.Text.Length<1)
+            {
+                CalcType = ' ';
+                isMemory = false;
+                isRooted = true;
+                OldEquals.Text = "";
+                Equals.Text = "0";
+                SemanticScreenReader.Announce(OldEquals.Text);
+                SemanticScreenReader.Announce(Equals.Text);
+            }
+            
+        }
         private void OnInvertClicked(object sender, EventArgs e)
         {
             int Invert;
@@ -202,13 +229,37 @@
         }
         private void OnDotClicked(object sender, EventArgs e)
         {
-            isRooted = false;
-            Equals.Text += ",";
-            SemanticScreenReader.Announce(Equals.Text);
+            if (!Equals.Text.Contains(',')) {
+                isRooted = false;
+                Equals.Text += ",";
+                SemanticScreenReader.Announce(Equals.Text);
+            }
         }
         private void OnEqualClicked(object sender, EventArgs e)
         {
-            if (!isRooted && !isMemory)
+            if (isMemory) {
+                if (CalcType == '+')
+                {
+                    FinalNum = NumTwo + FinalNum;
+                    Equals.Text = FinalNum.ToString();
+                }
+                if (CalcType == '-')
+                {
+                    FinalNum = FinalNum - NumTwo;
+                    Equals.Text = FinalNum.ToString();
+                }
+                if (CalcType == '*')
+                {
+                    FinalNum = FinalNum * NumOne;
+                    Equals.Text = FinalNum.ToString();
+                }
+                if (CalcType == '/')
+                {
+                    FinalNum = (float)FinalNum / NumTwo;
+                    Equals.Text = FinalNum.ToString();
+                }
+            }
+            else if (!isRooted && !isMemory)
             {
                 isRooted = true;
                 isMemory = true;

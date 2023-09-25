@@ -181,6 +181,14 @@
                 WidthRequest="50"
                 HeightRequest="50"
             />
+            <Button
+                x:Name="RevertBtn" Grid.Column="0" Grid.Row="4" 
+                Text="D"
+                SemanticProperties.Hint="PlusClick"
+                Clicked="OnRevertClicked"
+                WidthRequest="50"
+                HeightRequest="50"
+            />
             </Grid>
 
         </VerticalStackLayout>
